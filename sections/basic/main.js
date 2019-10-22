@@ -3,8 +3,7 @@ const listRepos = async username => {
     `https://api.github.com/users/${username}/repos?type=owner&sort=updated`
   )
     .then(res => {
-      console.log(res.json());
-      res.json();
+      return res.json();
     })
     .catch(err => {
       console.log(err);
@@ -15,13 +14,13 @@ const listRepos = async username => {
       repo => `
         <li>
             <a href="${repo.html_url}">${repo.name}</a>
-            (stars: ${repo.stargazers_count})
+            (✨ ${repo.stargazers_count})
         </li>`
     )
     .join("");
 
   const content = document.getElementById("content");
-  content.innetHTML = `<ul>${markup}</ul>`;
+  content.innerHTML = `<ul>${markup}</ul>`;
 };
 
 listRepos("andiegonzalez");

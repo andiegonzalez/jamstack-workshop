@@ -70,7 +70,7 @@
   top: calc(50% - 3rem);
 }
 
-@@keyframes loading {
+@keyframes loading {
   from {
     opacity: 0;
     transform: scale(0.001);
