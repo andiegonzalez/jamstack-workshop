@@ -36,3 +36,67 @@
   display: block;
   font-size: 1.25rem;
 }
+.button.centered {
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: 1rem;
+}
+
+.form.pending {
+  position: relative;
+}
+
+.form.pending::before {
+  background: white;
+  border-radius: 0.25rem;
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  opacity: 0.85;
+  top: 0;
+  left: 0;
+}
+
+.form.pending::after {
+  animation: loading 1s infinite ease-out;
+  background: radial-gradient(rgba(0, 50, 255, 0), rgba(0, 50, 255, 0.75));
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  height: 6rem;
+  width: 6rem;
+  left: calc(50% - 3rem);
+  top: calc(50% - 3rem);
+}
+
+@@keyframes loading {
+  from {
+    opacity: 0;
+    transform: scale(0.001);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.success,
+.error {
+  display: block;
+  border-radius: 0.25rem;
+  max-width: 500px;
+  text-align: center;
+  margin: 0.75rem auto 0;
+}
+
+.success {
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid green;
+  padding: 2rem;
+}
+.error {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid red;
+  padding: 1rem;
+}
